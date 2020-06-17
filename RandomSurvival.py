@@ -27,12 +27,13 @@ while True:
     line(f"Day: {day}")
     while tick <= 24:
         tick += 1
-        for i in range(survivors):
+        for i in range(len(survivors)):
             survivors[i][3] -= 1
-            if survivors[i][3] > 0:
+            if survivors[i][3] < 0:
                 print(f"{survivors[i][0]} Died of starvation")
                 del survivors[i]
-                i += 1
+                if i > 0:
+                    i -= 1
             elif survivors[i][2] > 0:
                 survivors[i][2] -= 1
                 action = random.randint(0, 1)
@@ -51,3 +52,7 @@ while True:
                         survivors[i][5] += random.randint(0, 3)
             else:
                 print(f"{survivors[i][0]} slept")
+                survivors[i][2] += random.randint(1,3)
+    tick = 0
+    day += 1
+            
