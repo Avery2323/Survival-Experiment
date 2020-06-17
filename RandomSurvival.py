@@ -16,7 +16,7 @@ starting_amount = int(input(">>> "))
 for i in range(starting_amount):
     line(f"What is survivor {i}'s name?")
     name = input(">>> ")
-    survivor = [name, 0] #[name, energy]
+    survivor = [name, 0, 10, 15, ] #[name, age, energy, hunger]
     survivors.append(survivor)
 tick = 0
 day = 0
@@ -25,6 +25,4 @@ while True:
     line(f"Day: {day}")
     while tick <= 24:
         tick += 1
-        for i in range(survivors):
-            
-    
+        for i in range(survivors): 
